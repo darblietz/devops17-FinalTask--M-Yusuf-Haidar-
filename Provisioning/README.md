@@ -41,6 +41,14 @@ resource "idcloudhost_floating_ip" "firstIP" {
   terraform plan |
   terraform apply
   ```
+<br><br>
+![5  init](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/9a2ac288-314b-4d27-a939-9eae483c887d)<br><br>![6  validate](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/274b2c27-8fe5-4857-958e-a2f4ca974221)<br><br>![7  plan](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/6bdf35e1-8f54-4915-b7c5-dcd422f55ba3)<br><br>![8  apply](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/d9cfcfe8-0f72-4094-a6cd-2ee54ca30768)<br><br>
+- Result<br><br>![2  result haidar-appserver](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/a5cc09cf-23a0-44e8-9785-343d51580b4c)<br><br>![3  result haidar-gateway](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/f71579b2-a243-4dcf-a490-2c08a5e3ab08)<br><br>![4  result haidar-monitoring](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/447ee0ff-84ea-4b4b-8990-d463b9f06314)<br><br>
+
+
+
+  
+  
 
 
 
