@@ -78,6 +78,81 @@ ansible_user="haidar"
 ```
 <br><br>
 
+- Buat file config install-docker.yml untuk instalasi docker pada semua server :<br><br>
+```
+- become: true
+  gather_facts: true
+  hosts: all
+
+  vars:
+    registry_docker_username: "haidar"
+
+  tasks:
+    - name: Update apt module
+      apt:
+        update_cache: true
+    - name: Install ca-cert, curl, gnupg
+      apt:
+        name:
+          - ca-certificates
+          - curl
+          - gnupg
+    - name: Install GPG key
+      apt_key:
+        url: "https://download.docker.com/linux/ubuntu/gpg"
+    - name: Install docker repository
+      apt_repository:
+        repo: "deb https://download.docker.com/linux/ubuntu focal stable"
+    - name: update apt module
+      apt:
+        update_cache: true
+    - name: Replace old URL di source list docker
+      replace:
+        path: /etc/apt/sources.list
+        regexp: "http://mirrors.idcloudhost.com/ubuntu"
+        replace: "http://archive.ubuntu.com/ubuntu/"
+    - name: Install docker engine
+      apt:
+        update_cache: true
+        name:
+          - docker-ce
+          - docker-ce-cli
+          - containerd.io
+          - docker-buildx-plugin
+          - docker-compose-plugin
+
+    - name: Create group "docker"
+      group:
+        name: "docker"
+        state: present
+
+    - name: Create user "{{ registry_docker_username }}"
+      user:
+        name: "{{ registry_docker_username }}"
+        state: present
+        createhome: yes
+        group: "{{ registry_docker_username }}"
+
+    - name: Add user "{{ registry_docker_username }}" to group "docker"
+      user:
+        name: "{{ registry_docker_username }}"
+        groups: docker
+        append: yes
+
+    - name: Pull bitnami/node-exporter
+      docker_image:
+        name: bitnami/node-exporter
+        source: pull
+
+    - name: Run Node exporter container
+      docker_container:
+        name: node-exp
+        image: bitnami/node-exporter
+        state: started
+        restart_policy: unless-stopped
+        published_ports:
+          - "9100:9100"
+```
 
   
   
