@@ -159,6 +159,8 @@ ansible-playbook install-docker.yml
 ```
 ![9  ansible-playbook install-docker yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/b4c1a74d-2517-4126-bed3-1c67e0644f9f)<br><br>![10  docker version appserver](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/e2675d43-5b75-4746-b7de-1cd479354a2e)![11  docker version gateway](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/8436e678-d5b7-4b65-842d-fcfd5e3f3e8b)![12  docker version monitor](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/f70d2e06-f312-418b-bb96-ef8e9d8272f3)<br><br>
 
+- Lalu membuat reverse-proxy di directory config/reverse-proxy/ :<br><br>
+
 
 
 
