@@ -296,7 +296,35 @@ ansible-playbook install-jenkins.yml
 ```
 ansible-playbook install-prometheus.yml
 ```
-![15  ansible-playbook install-prometheus yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/2164a3d9-504d-43c5-9873-34994a961125)<br>
+![15  ansible-playbook install-prometheus yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/2164a3d9-504d-43c5-9873-34994a961125)<br>![16  result prometheus](https://github.com/darblietz/-devops17-dumbways--M-Yusuf-Haidar-Week-1-Introduction-to-DevOps/assets/98991080/bb9e1c4e-c782-446f-9fd2-5cf4677ecdf2)<br><br>
+
+- Buat file config install-grafana.yml untuk instalasi grafana pada server monitoring :
+```
+---
+- become: true
+  gather_facts: false
+  hosts: monitoring
+  tasks:
+    - name: Pull grafana/grafana
+      docker_image:
+        name: grafana/grafana
+        source: pull
+
+    - name: Run grafana/grafana
+      docker_container:
+        name: grafana
+        image: grafana/grafana
+        state: started
+        restart_policy: unless-stopped
+        published_ports:
+          - "3000:3000"
+```
+- lalu jalankan configurasinya dengan perintah berikut :
+```
+ansible-playbook install-grafana.yml
+```
+
+
 
 
 
