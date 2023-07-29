@@ -41,6 +41,46 @@ resource "idcloudhost_floating_ip" "firstIP" {
 - Untuk disable password login kita access ke directory /etc/ssh/sshd_config :<br><br>
   "PasswordAuthentication no"<br>![6  sshd_config](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/2f372ddf-6261-48fa-b785-4341f2490c3c)<br><br>
 
+### Firewall
+- Buat file config firewall.yml untuk instalasi ufw pada server gateway :
+```
+---
+- become: true
+  gather_facts: false
+  hosts: gateway
+  tasks:
+    - name: install firewall
+      apt:
+        name: ufw
+        update_cache: yes
+        state: latest
+    - name: enable ufw
+      community.general.ufw:
+        state: enabled
+        policy: allow
+    - name: rules
+      community.general.ufw:
+        rule: allow
+        proto: tcp
+        port: "{{ item }}"
+      with_items:
+      - 22
+      - 80
+      - 443
+      - 3000
+      - 5000
+      - 3306
+      - 9090
+      - 9100
+      - 8080
+    - name: enable ufw
+      community.general.ufw:
+        state: reloaded
+        policy: allow
+```
+![7  ansible-playbook firewall yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/26e9c296-004d-4883-9905-da2ccb96b312)<br><br>![8  sudo ufw verbose](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/b071e0e8-312a-4ee0-b249-d808ce4c887c)
+
+
 
 
 
