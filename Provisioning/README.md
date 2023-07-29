@@ -159,7 +159,107 @@ ansible-playbook install-docker.yml
 ```
 ![9  ansible-playbook install-docker yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/b4c1a74d-2517-4126-bed3-1c67e0644f9f)<br><br>![10  docker version appserver](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/e2675d43-5b75-4746-b7de-1cd479354a2e)![11  docker version gateway](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/8436e678-d5b7-4b65-842d-fcfd5e3f3e8b)![12  docker version monitor](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/f70d2e06-f312-418b-bb96-ef8e9d8272f3)<br><br>
 
-- Lalu membuat reverse-proxy di directory config/reverse-proxy/ :<br><br>
+- Lalu membuat reverse-proxy di directory config/reverse-proxy/ :<br><br>![13  location rproxy conf](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/d7c1a613-184c-4790-8eef-5b22cc4ea176)<br><br>
+```
+server {
+    server_name nodeexp-appserver.haidar.studentdumbways.my.id;
+
+    location / {
+             proxy_pass http://103.179.56.88:9100;
+    }
+}
+server {
+    server_name pro.haidar.studentdumbways.my.id;
+
+    location / {
+             proxy_pass http://103.179.56.174:9090;
+    }
+}
+server {
+    server_name nodeexp-gateway.haidar.studentdumbways.my.id;
+
+    location / {
+             proxy_pass http://103.179.56.156:9100;
+    }
+}
+server {
+    server_name nodeexp-monitoring.haidar.studentdumbways.my.id;
+
+    location / {
+             proxy_pass http://103.179.56.174:9100;
+    }
+}
+```
+- Buat file config nginx.yml untuk instalasi nginx pada server gateway :<br><br>
+```
+---
+- become: true
+  gather_facts: false
+  hosts: gateway
+  tasks:
+    - name: Installing nginx
+      apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+
+    - name: delete default nginx site
+      file:
+        path: /etc/nginx/sites-enabled/default
+        state: absent
+
+    - name: Copy rproxy.conf
+      copy:
+        src: /home/rommel/ansible/config/reverse-proxy/  # Add the file name to the source path
+        dest: /etc/nginx/sites-enabled
+
+    - name: Check nginx
+      command: nginx -t
+
+    - name: Reload nginx
+      service:
+        name: nginx
+        state: reloaded
+```
+- Lalu jalankan configurasi nginx.yml dengan perintah berikut :<br>
+```
+ansible-playbook nginx.yml
+```
+![14  ansible-playbook nginx yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/8481f392-dfe1-453d-98fd-36edb4b0abce)<br><br>
+
+- Buat file config install-jenkins.yml untuk instalasi jenkins pada server monitoring :<br><br>
+```
+---
+- become: true
+  gather_facts: false
+  hosts: monitoring
+  tasks:
+    - name: Pull jenkins/jenkins
+      docker_image:
+        name: jenkins/jenkins
+        source: pull
+
+    - name: Run jenkins/jenkins
+      docker_container:
+        name: jenkins
+        image: jenkins/jenkins:lts
+        state: started
+        privileged: true
+        user: root
+        restart_policy: unless-stopped
+        ports:
+          - "8080:8080"
+          - "50000:50000"
+        volumes:
+          - ./jenkins_home:/var/jenkins_home
+```
+- lalu jalankan configurasi install-jenkins.yml dengan perintah berikut :<br>
+```
+ansible-playbook install-jenkins.yml
+```
+
+
+
 
 
 
