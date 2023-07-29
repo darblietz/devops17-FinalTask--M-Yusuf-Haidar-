@@ -33,3 +33,34 @@ resource "idcloudhost_floating_ip" "firstIP" {
   assigned_to = idcloudhost_vm.appserver.id
 }
 ```
+<br><br>
+- selanjutnya melakukan inisiasi, validasi, plan, dan apply pada folder terraform :<br><br>
+  ```
+  terraform init |
+  terraform validate |
+  terraform plan |
+  terraform apply
+  ```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
