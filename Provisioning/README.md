@@ -257,6 +257,49 @@ ansible-playbook nginx.yml
 ```
 ansible-playbook install-jenkins.yml
 ```
+![15  ansible-playbook install-jenkins yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/112e60c7-48ca-4aeb-a941-4f14772b0ef5)<br><br>![install jenkins](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/d992890d-d1f8-436f-839f-43511e53a41a)<br><br.
+
+- Buat file config install-prometheus.yml untuk instalasi prometheus pada server monitoring :
+```
+---
+- become: true
+  hosts: monitoring
+  tasks:
+    - name: Stop and remove existing Prometheus
+      community.docker.docker_container:
+        name: prometheus
+        state: absent
+
+    - name: Create directory for Prometheus config
+      file:
+        path: /home/haidar/prometheus
+        state: directory
+        mode: '0755'
+
+    - name: Copy Prometheus config file
+      copy:
+        src: prometheus.yml
+        dest: /home/haidar/prometheus/prometheus.yml
+
+    - name: Run Prometheus on Docker
+      community.docker.docker_container:
+        name: prometheus
+        image: prom/prometheus
+        ports:
+          - "9090:9090"
+        restart_policy: unless-stopped
+        volumes:
+          - /home/haidar/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+        state: started
+```
+- lalu jalankan configurasinya dengan perintah berikut :<br>
+```
+ansible-playbook install-prometheus.yml
+```
+![15  ansible-playbook install-prometheus yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/2164a3d9-504d-43c5-9873-34994a961125)<br>
+
+
+
 
 
 
