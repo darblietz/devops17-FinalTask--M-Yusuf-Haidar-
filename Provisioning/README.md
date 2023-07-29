@@ -323,6 +323,7 @@ ansible-playbook install-prometheus.yml
 ```
 ansible-playbook install-grafana.yml
 ```
+![17  ansible-playbook install-grafana yml](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/90053924-4c77-408c-95a1-157ecead3e02)<br>
 
 
 
