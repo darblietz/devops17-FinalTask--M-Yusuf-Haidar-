@@ -9,7 +9,17 @@
 
 ### Setup Grafana
 - menambahkan data source prometheus terlebih dahulu di Grafana <br><br>![5](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/ab635b4c-9918-4ce2-adb9-a7474458c181)
-<br><br>![6](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/0586ed7b-2b72-45d3-8d58-11ad97d5be64)<br><br>![7](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/47eab3da-dd73-44d7-ac41-960a1f7dcd25)
+<br><br>![6](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/0586ed7b-2b72-45d3-8d58-11ad97d5be64)<br><br>![7](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/47eab3da-dd73-44d7-ac41-960a1f7dcd25)<br><br>
+- Disini saya menggunakan import dashbord "node exporter full" digrafana labs dengan Copy ID atau donwload json-nya :<br><br>
+![1](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/badbd503-64aa-4e3c-a2b5-d491ac6caef0)<br><br>
+![2](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/c876ca12-50f7-4d94-9a66-2b0cb1dc0f79)<br><br>
+![3](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/be6b74ce-e919-476b-8d13-e0e535b5d4be)<br><br>
+![4](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/c8d61707-26bc-4ec0-9280-9f3bbb76fd5a)<br><br>
+![5](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/e22b35a8-f86b-43e2-a86a-cda3db34a0be)<br><br>
+
+
+
+
 
 
 
