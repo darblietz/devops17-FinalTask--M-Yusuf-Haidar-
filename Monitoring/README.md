@@ -26,7 +26,7 @@
 ### Alert Rules
 - alert rules ada 3 parameter yaitu :
   - CPU  Usage Over 80%<br><br>![1](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/b6a460a7-b9fe-4b5d-8304-6a50fb05def5)<br><br>
-  - RAM Usage Over 10%<br><br>![2](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/095b5e86-5805-4503-aa87-34da72bbc9f5)<br><br>
+  - RAM Usage Over 10%<br><br>![2](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/095b5e86-5805-4503-aa87-34da72bbc9f5)<br><br>![3](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/6cbf15f3-17cd-4942-b5f5-db565651d59d)<br><br>![4](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/d84af178-428a-415e-85c4-33e23d356350)<br><br>
   - Low Storage Warning
 
 
