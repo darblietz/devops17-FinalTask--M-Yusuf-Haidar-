@@ -17,6 +17,9 @@
 ![4](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/c8d61707-26bc-4ec0-9280-9f3bbb76fd5a)<br><br>
 ![5](https://github.com/darblietz/devops17-FinalTask--M-Yusuf-Haidar-/assets/98991080/e22b35a8-f86b-43e2-a86a-cda3db34a0be)<br><br>
 
+### Alert Grafana
+- disini saya menggunakan telegram untuk alert grafana <br><br>
+
 
 
 
